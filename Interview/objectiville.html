@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Show power of objects</title>
+</head>
+<body>
+<script type="text/javascript">
+	console.log("Hello object");
+	var supeSecretFile = {
+		level : "classified",
+		opened: 0,
+		password: 2,
+		contents: "Dr. Evel's next meeting is in Detroit."
+	};
+
+	console.log(supeSecretFile);
+
+	function getSecretFile(file, secretPassword) {
+		file.opened = file.opened + 1;
+		console.log(file.opened);
+		if (secretPassword == file.password) {
+			return file.contents;
+		}
+			else {
+				return "Invalid password! No Secret for you.";
+			}
+
+	}
+
+	function setSecretFile(file, secretPassword, secret) {
+		if (secretPassword == file.password) {
+			file.opened = 0;
+			file.contents = secret;
+		}
+		return file;
+	}
+console.log(getSecretFile(supeSecretFile, 2));
+console.log(setSecretFile(supeSecretFile, 2, "This is new content"))
+
+
+</script>
+</body>
+</html>
